@@ -1,6 +1,7 @@
-import queue
+﻿import queue
 import threading
 import time
+import webbrowser
 import tkinter as tk
 from tkinter import ttk
 
@@ -108,6 +109,18 @@ class EmailTickGui:
         self.log_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar = ttk.Scrollbar(log_frame, orient=tk.VERTICAL, command=self.log_text.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        source_link = ttk.Label(
+            outer,
+            text="开源地址: https://github.com/8797a/TickMail",
+            foreground="#2563eb",
+            cursor="hand2",
+        )
+        source_link.pack(anchor="e", pady=(8, 0))
+        source_link.bind(
+            "<Button-1>",
+            lambda _event: webbrowser.open("https://github.com/8797a/TickMail"),
+        )
         self.log_text.configure(yscrollcommand=scrollbar.set)
 
     def run_worker(self, target, *args):
@@ -354,3 +367,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
