@@ -1,4 +1,4 @@
-﻿import queue
+import queue
 import threading
 import time
 import webbrowser
